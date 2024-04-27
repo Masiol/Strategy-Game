@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FormationControler : MonoBehaviour
 {
-    //[SerializeField] private List<FormationBase> formations = new List<FormationBase>();
     private FormationSelector formationSelector;
 
     private void Start()
@@ -15,6 +14,13 @@ public class FormationControler : MonoBehaviour
     public void SetFormation(FormationBase _formationBase)
     {
         if (formationSelector.selectedFormationArmy != null)
-            formationSelector.selectedFormationArmy.ChangeFormation(_formationBase);
+        {
+            FormationSettings formationSettings = formationSelector.selectedFormationArmy.GetComponent<FormationSettings>();
+            if(formationSettings != null)
+            {
+                Debug.Log("tutaj git");
+            }
+            formationSelector.selectedFormationArmy.ChangeFormation(_formationBase, formationSettings);
+        }
     }
 }

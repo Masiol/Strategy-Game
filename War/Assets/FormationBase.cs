@@ -7,6 +7,8 @@ public abstract class FormationBase : ScriptableObject
 {
     [SerializeField][Range(0, 1)] protected float _noise = 0;
     [SerializeField] protected float Spread = 1;
+    public abstract void ApplySettings(object settings);
+
     public abstract IEnumerable<Vector3> EvaluatePoints();
 
     public Vector3 GetNoise(Vector3 pos)

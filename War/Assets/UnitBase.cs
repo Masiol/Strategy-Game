@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,6 +27,8 @@ public class UnitBase : ScriptableObject
     public bool isUnlocked;
     public Sprite icon;
 
+    public AnimSettings animSettings;
+
 
     public virtual void Attack()
     {
@@ -33,17 +37,68 @@ public class UnitBase : ScriptableObject
 }
 public enum TypeUnit
 {
-    Weak_Knight,
+    Soldier,
     Knight,
-    Weak_Spearman,
     Spearman,
     Shield_Spearman,
     Mage,
     Archer,
     Axe_Man,
-    ShieldMan,
+    TwoHanded,
     Calvary,
     Balista,
     Catapult,
     Trebuchet
 }
+
+[Serializable]
+public class AnimSettings
+{
+    public AnimSettingsIdle animSettingsIdle;
+    public AnimSettingsRun animSettingsRun;
+    public AnimSettingsAttack animSettingsAttack;
+}
+
+[Serializable]
+public class AnimSettingsIdle
+{
+    public float speed;
+    public int animationInt;
+    public int weaponType;
+    public int meleeTypeInt;
+    public List<AnimLayers> animLayers = new List<AnimLayers>();
+}
+[Serializable]
+public class AnimSettingsRun
+{
+    public float speed;
+    public int animationInt;
+    public int weaponType;
+    public int meleeTypeInt;
+    public List<AnimLayers> animLayers = new List<AnimLayers>();
+}
+[Serializable]
+public class AnimSettingsAttack
+{
+    public float speed;
+    public int animationInt;
+    public int weaponType;
+    public int meleeTypeInt;
+    public List<AnimLayers> animLayers = new List<AnimLayers>();
+}
+
+[Serializable]
+public class AnimLayers
+{
+    public int layersIndex;
+    public LayerWeight layerWeight;
+}
+[Serializable]
+public class LayerWeight
+{
+    public float layerWeight;
+    public bool changeSmooth;
+    public float speed;
+}
+
+

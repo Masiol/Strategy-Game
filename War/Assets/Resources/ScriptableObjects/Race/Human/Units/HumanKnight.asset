@@ -17,7 +17,10 @@ MonoBehaviour:
   commandPoints: 10
   baseHealth: 10
   baseDamage: 10
-  baseSpeed: -5
+  baseSpeed: 4
+  baseAttackSpeed: 2
   baseArmor: 10
   race: {fileID: 11400000, guid: 6ea376fa4f3eb4e48b8efacdb9a38a98, type: 2}
-  type: 0
+  type: 1
+  isUnlocked: 0
+  icon: {fileID: 0}

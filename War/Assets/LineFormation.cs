@@ -6,23 +6,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Line Formation", menuName = "Formations/Line Formation")]
 public class LineFormation : FormationBase
 {
-    [SerializeField] private int _unitWidth = 5; // Liczba jednostek w linii
-    [SerializeField] private float _nthOffset = 0; // Przesuniêcie dla nieparzystych jednostek w linii
+    [SerializeField] private LineFormationSettings settings = new LineFormationSettings();
+
+    public override void ApplySettings(object _settings)
+    {
+       settings = _settings as LineFormationSettings;
+        if (settings == null)
+            throw new InvalidOperationException("Invalid settings applied to LineFormation");
+    }
+
 
     public override IEnumerable<Vector3> EvaluatePoints()
     {
-        var middleOffset = new Vector3(_unitWidth * 0.5f, 0, 0); // Aby wyœrodkowaæ formacjê wzglêdem pozycji rodzica
+        var middleOffset = new Vector3(settings.unitWidth * 0.5f, 0, 0);
 
-        for (var x = 0; x < _unitWidth; x++)
+        for (var x = 0; x < settings.unitWidth; x++)
         {
-            // Oblicz pozycjê dla ka¿dej jednostki w linii
-            var pos = new Vector3(x + (x % 2 == 0 ? 0 : _nthOffset), 0, 0); // Dodaj przesuniêcie dla parzystych jednostek
+            
+            var pos = new Vector3(x + (x % 2 == 0 ? 0 : settings.nthOffset), 0, 0);
 
-            pos -= middleOffset; // Centruj formacjê
+            pos -= middleOffset;
 
-            pos += GetNoise(pos); // Dodaj ewentualny szum do pozycji
+            pos += GetNoise(pos);
 
-            pos *= Spread; // Zastosuj parametr rozproszenia, jeœli jest u¿ywany
+            pos *= Spread; 
 
             yield return pos;
         }

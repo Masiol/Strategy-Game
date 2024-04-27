@@ -8,6 +8,10 @@ TagManager:
   - Selector
   - MapBounds
   - UIFormation
+  - Unit
+  - Obstacle
+  - UIUnit
+  - SolidFormation
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - Unit
   - Bounds
   - FormationColliderChecker
-  - 
+  - Ground
   - 
   - 
   - 

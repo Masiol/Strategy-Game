@@ -30,6 +30,8 @@ public class FormationArmy : MonoBehaviour
     private int unitsReachedDestination = 0;
     private bool applyNewFormation;
 
+    public int Clicked;
+
     private void Start()
     {
         spawnedUnits = GetComponent<FormCreator>().units;
@@ -63,42 +65,12 @@ public class FormationArmy : MonoBehaviour
                     float distanceToTarget = Vector3.Distance(unitController.transform.position, transform.position + points[i]);
                     if (distanceToTarget > 0.1f)
                     {
-                        unitController.MoveTo(transform.position + points[i]);
+                        unitController.MoveTo(new Vector3(transform.position.x, 0, transform.position.z) + points[i]);
                     }
                 }
             }
         }
     }
-
-   /* public void GetNewPositionsForEachUnit(Vector3 point)
-    {
-        newPositions.Add(point);
-    }
-    public void ConfigureCollider()
-    {
-        Vector3 minBounds = Vector3.one * Mathf.Infinity;
-        Vector3 maxBounds = Vector3.one * Mathf.NegativeInfinity;
-
-        foreach (Vector3 pos in newPositions)
-        {
-            Vector3 unitPosition = pos;
-            minBounds = Vector3.Min(minBounds, unitPosition);
-            maxBounds = Vector3.Max(maxBounds, unitPosition);
-        }
-
-        Vector3 center = (minBounds + maxBounds) * 0.5f;
-        Vector3 size = maxBounds - minBounds;
-
-        float customHeight = 5.0f;
-        size.y = customHeight;
-
-        float margin = 0.1f;
-        size += Vector3.one * margin;
-
-        boxCollider.size = size;
-        boxCollider.center = center - transform.position;
-    }*/
-
     public void UnitReachedDestination()
     {
         unitsReachedDestination++;
@@ -115,14 +87,31 @@ public class FormationArmy : MonoBehaviour
         SetUnitOffsets();
     }
 
-    public void ChangeFormation(FormationBase _formation)
+    public void ChangeFormation(FormationBase _formation, FormationSettings _formationSettings)
     {
+        
         Formation = _formation;
+        switch (_formation)
+        {
+            case BoxFormation:
+                Formation.ApplySettings(_formationSettings.formationsSettings.boxFormationSettings);
+                break;
+            case LineFormation:
+                Formation.ApplySettings(_formationSettings.formationsSettings.lineFormationSettings);
+                break;
+            case RadialFormation:
+                Formation.ApplySettings(_formationSettings.formationsSettings.circleFormationSettings);
+                break;
+            case TriangleFormation:
+                Formation.ApplySettings(_formationSettings.formationsSettings.triangleFormationSettings);
+                break;
+        }      
         applyNewFormation = true;
     }
 
     public void SelectFormation(bool _state)
     {
+       
         foreach (var unit in spawnedUnits)
         {
             if (unit.transform.childCount > 0)
@@ -137,30 +126,11 @@ public class FormationArmy : MonoBehaviour
             }
         }
     }
-   /* public void MoveFormationTo(Vector3 destination)
+
+    public int GetFirstClicked()
     {
-        Vector3 newCenter = destination;
-        newDestination = destination;
-        newPositions.Clear();
-
-        Vector3 offset = newCenter - CalculateFormationCenter();
-        Vector3 totalDisplacement = GetComponentInChildren<CheckMapBounds>().LastDisplacement;
-
-        for (int i = 0; i < spawnedUnits.Count; i++)
-        {
-            Vector3 newPosition = spawnedUnits[i].transform.position + offset + totalDisplacement;
-            newPositions.Add(newPosition);
-
-            UnitController unitController = spawnedUnits[i].GetComponent<UnitController>();
-            if (unitController != null)
-            {
-                unitController.MoveTo(newPosition);
-            }
-        }
-
-        ConfigureCollider(); 
-        newDestination = destination + totalDisplacement; 
-    }*/
+        return Clicked;
+    }
     private void SetUnitOffsets()
     {
         initialUnitPositions = new Vector3[spawnedUnits.Count];

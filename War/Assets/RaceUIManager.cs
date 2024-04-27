@@ -1,13 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DG.Tweening;
 
 public class RaceUIManager : MonoBehaviour
 {
-    public List<GameObject> buttons;
-
-    private GameObject currentButton;
+    [SerializeField] private List<GameObject> buttons;
     [SerializeField] private string[] Race;
+    [SerializeField] private RectTransform panel;
+    [SerializeField] private float showPositionY;
+    [SerializeField] private float hidePositionY;
+    public float animationDuration = 0.5f;
+    public Ease easingType = Ease.OutQuart;
+    private GameObject currentButton;
+    
+
 
     private UnitUIManager unitUIManager;
 
@@ -51,14 +58,32 @@ public class RaceUIManager : MonoBehaviour
             Debug.Log("Button name no match");
             return;
         }
+        
         else
         {
+            panel.DOAnchorPosY(showPositionY, animationDuration).SetEase(easingType);
             switch (_name)
             {
                 case "Human":
                     unitUIManager.LoadUnits("Human");
-                    break;          
+                    break;
+                case "Orcs":
+                    unitUIManager.LoadUnits("Orcs");
+                    break;
+                case "Elves":
+                    unitUIManager.LoadUnits("Evles");
+                    break;
+                case "Undead":
+                    unitUIManager.LoadUnits("Undead");
+                    break;
             }
+
         }
+    }
+
+    public void HideUIUnitPanel()
+    {
+        panel.DOAnchorPosY(hidePositionY, animationDuration).SetEase(easingType);
+
     }
 }

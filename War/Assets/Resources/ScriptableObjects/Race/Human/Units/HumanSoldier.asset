@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4db5d83217f8bb4485da0cfc093efec, type: 3}
+  m_Name: HumanSoldier
+  m_EditorClassIdentifier: 
+  isPlayerUnit: 1
+  unitName: Human Soldier
+  commandPoints: 7
+  baseHealth: 8
+  baseDamage: 6
+  baseSpeed: 4
+  baseAttackSpeed: 2
+  baseArmor: 8
+  race: {fileID: 11400000, guid: 6ea376fa4f3eb4e48b8efacdb9a38a98, type: 2}
+  type: 0
+  isUnlocked: 0
+  icon: {fileID: 0}
+  animSettings:
+    animSettingsIdle:
+      speed: 0
+      animationInt: 0
+      weaponType: 2
+      meleeTypeInt: 1
+      animLayers:
+      - layersIndex: 5
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.4
+      - layersIndex: 6
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.4
+      - layersIndex: 7
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.4
+    animSettingsRun:
+      speed: 1
+      animationInt: 0
+      weaponType: 1
+      meleeTypeInt: 0
+      animLayers:
+      - layersIndex: 5
+        layerWeight:
+          layerWeight: 0.5
+          changeSmooth: 1
+          speed: 0.3
+      - layersIndex: 6
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.3
+      - layersIndex: 7
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.3
+    animSettingsAttack:
+      speed: 0
+      animationInt: 0
+      weaponType: 12
+      meleeTypeInt: 1
+      animLayers:
+      - layersIndex: 5
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.5
+      - layersIndex: 6
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.5
+      - layersIndex: 7
+        layerWeight:
+          layerWeight: 0
+          changeSmooth: 1
+          speed: 0.5
