@@ -1,89 +1,50 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using DG.Tweening;
+using System.Linq;
+using UnityEngine.UI;
 
 public class RaceUIManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> buttons;
-    [SerializeField] private string[] Race;
-    [SerializeField] private RectTransform panel;
-    [SerializeField] private float showPositionY;
-    [SerializeField] private float hidePositionY;
-    public float animationDuration = 0.5f;
-    public Ease easingType = Ease.OutQuart;
-    private GameObject currentButton;
-    
+    [SerializeField] private Button humanButton;
+    [SerializeField] private Button elfButton;
+    [SerializeField] private Button orcButton;
+    [SerializeField] private Button undeadButton;
+    [SerializeField] private Transform unitsParent;
+    [SerializeField] private Button unitButtonPrefab;
 
+    private ObjectPlacer objectPlacer;
 
-    private UnitUIManager unitUIManager;
-
-    private void Start()
+    void Start()
     {
-        unitUIManager = FindObjectOfType<UnitUIManager>();
+        objectPlacer = FindObjectOfType<ObjectPlacer>();
+
+        humanButton.onClick.AddListener(() => LoadUnits("Human"));
+        elfButton.onClick.AddListener(() => LoadUnits("Elves"));
+        orcButton.onClick.AddListener(() => LoadUnits("Orcs"));
+        undeadButton.onClick.AddListener(() => LoadUnits("Undead"));
     }
 
-    public void ButtonClicked(GameObject _clickedButton)
+    private void LoadUnits(string race)
     {
-        if (_clickedButton == currentButton)
+        var units = Resources.LoadAll<UnitBase>("ScriptableObjects/"+race+"Units").ToList();
+        ClearUnitsDisplay();
+
+        foreach (var unit in units)
         {
-            ResetButtons();
+            var unitUI = Instantiate(unitButtonPrefab);
+            unitUI.name = $"{unit.unitName}";
+            unitUI.transform.SetParent(unitsParent, false);
+            unitUI.GetComponent<Button>().onClick.AddListener(() => objectPlacer.SpawnUnit(unit.unitFormation));
+
         }
-        else
-        {
-            if (currentButton != null)
-            {
-                currentButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
-                currentButton = null;
-            }
-            currentButton = _clickedButton;
-            SetupUIUnits(_clickedButton.name);
-            currentButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
-        }
+
+        Debug.Log($"Loaded {units.Count} units for race: {race}");
     }
 
-    public void ResetButtons()
+    private void ClearUnitsDisplay()
     {
-        if (currentButton != null)
+        foreach (Transform child in unitsParent)
         {
-            currentButton.GetComponent<UnityEngine.UI.Button>().interactable = true;
-            currentButton = null;
+            Destroy(child.gameObject);
         }
-    }
-
-    private void SetupUIUnits(string _name)
-    {
-        if (!Race.Contains(_name))
-        {
-            Debug.Log("Button name no match");
-            return;
-        }
-        
-        else
-        {
-            panel.DOAnchorPosY(showPositionY, animationDuration).SetEase(easingType);
-            switch (_name)
-            {
-                case "Human":
-                    unitUIManager.LoadUnits("Human");
-                    break;
-                case "Orcs":
-                    unitUIManager.LoadUnits("Orcs");
-                    break;
-                case "Elves":
-                    unitUIManager.LoadUnits("Evles");
-                    break;
-                case "Undead":
-                    unitUIManager.LoadUnits("Undead");
-                    break;
-            }
-
-        }
-    }
-
-    public void HideUIUnitPanel()
-    {
-        panel.DOAnchorPosY(hidePositionY, animationDuration).SetEase(easingType);
-
     }
 }

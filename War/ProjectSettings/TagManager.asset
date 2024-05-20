@@ -12,6 +12,12 @@ TagManager:
   - Obstacle
   - UIUnit
   - SolidFormation
+  - EnemyUnit
+  - PlayerUnit
+  - EnemySide
+  - Army
+  - DiedUnit
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -23,7 +29,7 @@ TagManager:
   - Bounds
   - FormationColliderChecker
   - Ground
-  - 
+  - Formation
   - 
   - 
   - 

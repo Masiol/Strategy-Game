@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cdcb1338f6ecb4bba68bd036cb99b4, type: 3}
+  m_Name: HumanArcherFormation
+  m_EditorClassIdentifier: 
+  unitPrefab: {fileID: 8608956281046407038, guid: d0f1ab405a320344cb8ae9e830e8be68,
+    type: 3}
+  unitCount: 4
+  spacing: 2
+  formation: 3

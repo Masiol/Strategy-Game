@@ -212,7 +212,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.5290179
+        functionName: Attack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: dc1ef9c8af38a0a498e5b06f0d4c3f4a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -577,7 +585,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.4942289
+        functionName: Attack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: dc1ef9c8af38a0a498e5b06f0d4c3f4a,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -625,7 +641,7 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 799.8
     isReadable: 0
   meshes:
     lODScreenPercentages: []

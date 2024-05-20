@@ -1,37 +1,43 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Line Formation", menuName = "Formations/Line Formation")]
-public class LineFormation : FormationBase
+public class LineFormation : IFormationStrategy
 {
-    [SerializeField] private LineFormationSettings settings = new LineFormationSettings();
-
-    public override void ApplySettings(object _settings)
+    public void ArrangeUnits(GameObject _unitPrefab, int _unitCount, Transform _squadTransform, float _spacing)
     {
-       settings = _settings as LineFormationSettings;
-        if (settings == null)
-            throw new InvalidOperationException("Invalid settings applied to LineFormation");
+        ClearExistingUnits(_squadTransform);
+        CreateUnits(_unitPrefab, _unitCount, _squadTransform, _spacing);
     }
 
-
-    public override IEnumerable<Vector3> EvaluatePoints()
+    public void ReArrangeUnits(Transform _squadTransform, float _spacing)
     {
-        var middleOffset = new Vector3(settings.unitWidth * 0.5f, 0, 0);
+        int unitCount = _squadTransform.childCount;
+        float offset = _spacing;
+        Vector3 startPosition = _squadTransform.position - Vector3.right * (offset * (unitCount - 1) / 2);
 
-        for (var x = 0; x < settings.unitWidth; x++)
+        for (int i = 0; i < unitCount; i++)
         {
-            
-            var pos = new Vector3(x + (x % 2 == 0 ? 0 : settings.nthOffset), 0, 0);
+            Transform unit = _squadTransform.GetChild(i);
+            Vector3 position = startPosition + Vector3.right * offset * i;
+            unit.position = position;
+        }
+    }
 
-            pos -= middleOffset;
+    private void CreateUnits(GameObject _unitPrefab, int _unitCount, Transform _squadTransform, float _spacing)
+    {
+        Vector3 startPosition = -Vector3.right * (_spacing * (_unitCount - 1) / 2);
 
-            pos += GetNoise(pos);
+        for (int i = 0; i < _unitCount; i++)
+        {
+            Vector3 position = startPosition + Vector3.right * _spacing * i;
+            GameObject.Instantiate(_unitPrefab, _squadTransform.position + position, Quaternion.identity, _squadTransform);
+        }
+    }
 
-            pos *= Spread; 
-
-            yield return pos;
+    private void ClearExistingUnits(Transform _squadTransform)
+    {
+        foreach (Transform child in _squadTransform)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 }
