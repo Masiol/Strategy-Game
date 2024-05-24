@@ -24,11 +24,11 @@ public class SpearColliderAttack : MonoBehaviour, IColliderAttack
             if (hitCollider.gameObject.CompareTag(GetComponent<Unit>().enemyTag))
             {
                 // W³ócznia mo¿e atakowaæ kilka jednostek naraz
-                float damage = damageController.CalculateDamage(GetComponent<Unit>().unit.TotalDamage); 
+                float damage = damageController.CalculateDamage(GetComponent<Unit>().unitBase.TotalDamage); 
                 damageController.ApplyDamage(hitCollider.gameObject, damage);
             }
         }
-        Debug.Log("Spear attack performed!");
+       // Debug.Log("Spear attack performed!");
 
     }
     private void OnDrawGizmos()

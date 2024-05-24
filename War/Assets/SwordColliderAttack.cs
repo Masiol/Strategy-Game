@@ -19,12 +19,12 @@ public class SwordColliderAttack : MonoBehaviour, IColliderAttack
             if (hitCollider.gameObject.CompareTag(GetComponent<Unit>().enemyTag))
             {
                 // Tylko jedna jednostka przeciwnika jest atakowana
-                float damage = damageController.CalculateDamage(GetComponent<Unit>().unit.TotalDamage); 
+                float damage = damageController.CalculateDamage(GetComponent<Unit>().unitBase.TotalDamage); 
                 damageController.ApplyDamage(hitCollider.gameObject, damage);
                 break;
             }
         }
-        Debug.Log("Sword attack performed!");
+       // Debug.Log("Sword attack performed!");
     }
     private void OnDrawGizmos()
     {

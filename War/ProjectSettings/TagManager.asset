@@ -18,6 +18,8 @@ TagManager:
   - Army
   - DiedUnit
   - Ground
+  - SpecialTag
+  - Furniture
   layers:
   - Default
   - TransparentFX
@@ -25,12 +27,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Unit
+  - PlayerUnit
   - Bounds
   - FormationColliderChecker
   - Ground
   - Formation
-  - 
+  - EnemyUnit
   - 
   - 
   - 

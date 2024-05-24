@@ -86,7 +86,7 @@ NavMeshAgent:
   m_Height: 3.2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 3
 --- !u!1 &5302736261015077707
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,12 +768,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 11400000, guid: f43f947fc2e88f44fbfe17ecda9c5eb8, type: 2}
-  enemyTag: 
+  searchRadius: 150
   enemy: {fileID: 0}
-  detectionRadius: 150
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 2048
+  animator: {fileID: 0}
+  agent: {fileID: 0}
+  enemyTag: 
 --- !u!114 &793018669063779843
 MonoBehaviour:
   m_ObjectHideFlags: 0

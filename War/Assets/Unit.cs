@@ -1,207 +1,97 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
-public abstract class Unit : MonoBehaviour
+public class Unit : MonoBehaviour
 {
-    public UnitBase unit;
-    [SerializeField] private float searchRadius = 150f;
-    protected Animator animator;
-    [HideInInspector] public string enemyTag;
-    public GameObject enemy;
-    protected NavMeshAgent agent;
-
-    private float noEnemyFoundTimer = 0f;
-    private const float noEnemyFoundThreshold = 0.01f;
-    private bool lookingForEnemy;
-
-    public enum State
-    {
-        Idle,
-        Search,
-        MoveToEnemy,
-        Attack,
-        Died
-    }
-
-    public State currentState = State.Idle;
+    public State currentState;
+    public NavMeshAgent agent;
+    public Animator animator;
+    public UnitBase unitBase;
+    public string enemyTag;
+    public GameObject enemyObject;
 
     protected virtual void Awake()
     {
-        agent = GetComponentInParent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        agent = GetComponentInParent<NavMeshAgent>();
         enemyTag = gameObject.tag == "PlayerUnit" ? "EnemyUnit" : "PlayerUnit";
-        agent.speed = unit.TotalSpeed;
     }
 
     private void OnEnable()
     {
-        GameEvents.StartGame += StartUnitLogic;
-        GetComponent<HealthSystem>().OnDeath += Death;
+        MoveToEnemyState moveToEnemyState = new MoveToEnemyState();
+        GameEvents.StartGame += () => TransitionToState(moveToEnemyState);
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        GameEvents.StartGame -= StartUnitLogic;
-        GetComponent<HealthSystem>().OnDeath -= Death;
-    }
-
-    private void StartUnitLogic()
-    {
-        TransitionToState(State.Search);
-        lookingForEnemy = true;
+        TransitionToState(currentState);
+        enemyObject = FindClosestEnemy();
+        StartCoroutine(FindClosestEnemyCoroutine());
     }
 
     private void Update()
     {
-        CheckEnemyStatus();
-        PerformStateActions();
-        if (lookingForEnemy)
-            SearchForEnemy();
-
-        if (currentState == State.Search || currentState == State.MoveToEnemy)
-        {
-            if (enemy == null)
-            {
-                noEnemyFoundTimer += Time.deltaTime;
-                if (noEnemyFoundTimer >= noEnemyFoundThreshold)
-                {
-                    TransitionToState(State.Idle);
-                    noEnemyFoundTimer = 0f;
-                    agent.enabled = false;
-                }
-            }
-            else
-            {
-                noEnemyFoundTimer = 0f;
-            }
-        }
+        currentState?.Execute(this);
     }
 
-    private void CheckEnemyStatus()
+    public virtual void Attack()
     {
-        if (enemy != null && enemy.GetComponent<HealthSystem>().isDead)
-        {
-            enemy = null;
-            TransitionToState(State.Search);
-        }
+        // Implementacja ataku
     }
 
-    private void PerformStateActions()
+    public void TransitionToState(State newState)
     {
-        switch (currentState)
-        {
-            case State.Search:
-                animator.SetBool("Attack", false);
-                SearchForEnemy();
-                break;
-            case State.MoveToEnemy:
-                MoveToEnemy();
-                break;
-            case State.Attack:
-                FaceTarget(enemy.transform.position);
-                ContinueAttack();
-                break;
-            case State.Died:
-                // Handle death logic if necessary
-                break;
-        }
-    }
-
-    private void SearchForEnemy()
-    {
-        if (enemy == null)
-        {
-            enemy = FindClosestEnemy();
-            if (enemy)
-                TransitionToState(State.MoveToEnemy);
-        }
-    }
-
-    private void Death()
-    {
-        TransitionToState(State.Died);
-        animator.SetBool("Died", true);
-        int randomDeath = UnityEngine.Random.Range(0, 3);
-        animator.SetInteger("Death_Int", randomDeath);
-        animator.SetTrigger("Death");
-        agent.ResetPath();
-        gameObject.tag = "DiedUnit";
-        agent.enabled = false;
-    }
-
-    private void MoveToEnemy()
-    {
-        if (enemy != null && !GetComponent<HealthSystem>().isDead)
-        {
-            agent.SetDestination(enemy.transform.position);
-            FaceTarget(enemy.transform.position);
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance <= unit.attackRange)
-                TransitionToState(State.Attack);
-            else if (distance > searchRadius)
-                enemy = null;
-        }
-    }
-
-    private void ContinueAttack()
-    {
-        if (enemy != null && Vector3.Distance(transform.position, enemy.transform.position) <= unit.attackRange)
-        {
-            FaceTarget(enemy.transform.position);
-            agent.ResetPath();
-            Attack();
-        }
-        else
-        {
-            TransitionToState(State.Search);
-        }
-    }
-
-    protected abstract void Attack();
-
-    protected void TransitionToState(State newState)
-    {
-        if (currentState == newState) return;
-
+        currentState?.Exit(this);
         currentState = newState;
-        UpdateAnimator(newState);
-        if (newState != State.Idle)
-        {
-            noEnemyFoundTimer = 0f;  // Ensure timer is reset on state change
-        }
+        currentState.Enter(this);
     }
 
-    private void UpdateAnimator(State state)
+    public void SetAnimation(string anim, bool state)
     {
-        animator.SetBool("Idle", state == State.Idle);
-        animator.SetBool("Walk", state == State.MoveToEnemy);
+        animator.SetBool(anim, state);
+    }
 
+    private IEnumerator FindClosestEnemyCoroutine()
+    {
+        while (true)
+        {
+            FindClosestEnemy();
+            yield return new WaitForSeconds(1.0f); // Czekaj 1 sekundê przed ponownym sprawdzeniem
+        }
     }
 
     private GameObject FindClosestEnemy()
     {
-        GameObject closestEnemy = null;
-        float closestDistance = float.MaxValue;
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, searchRadius);
-        foreach (Collider hitCollider in hitColliders)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject closest = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+
+        foreach (GameObject enemy in enemies)
         {
-            if (hitCollider.gameObject.CompareTag(enemyTag))
+            Unit enemyUnit = enemy.GetComponent<Unit>();
+            if (enemyUnit != null && enemyUnit.enabled)
             {
-                float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
-                if (distance < closestDistance && !hitCollider.GetComponent<HealthSystem>().isDead)
+                float distance = Vector3.Distance(enemy.transform.position, currentPosition);
+                if (distance < closestDistance)
                 {
-                    closestEnemy = hitCollider.gameObject;
+                    closest = enemy;
                     closestDistance = distance;
                 }
             }
         }
-        return closestEnemy;
+
+        enemyObject = closest;
+        return closest;
     }
 
-    protected void FaceTarget(Vector3 targetPosition)
+
+    public void FaceTarget(Vector3 targetPosition)
     {
         Vector3 direction = (targetPosition - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * 2f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 }

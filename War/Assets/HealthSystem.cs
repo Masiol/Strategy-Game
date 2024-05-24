@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+
    
     public bool isDead = false;
     public event Action<float> OnHealthChanged;
@@ -14,7 +15,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Awake()
     {
-        maxHealth = GetComponent<Unit>().unit.TotalHealth;
+        maxHealth = GetComponent<Unit>().unitBase.TotalHealth;
         currentHealth = maxHealth;
         isDead = false;
     }
@@ -46,7 +47,7 @@ public class HealthSystem : MonoBehaviour
     {
         isDead = true;
         OnDeath?.Invoke();
-  
+        GetComponent<Unit>().TransitionToState(new DiedState());
         //gameObject.SetActive(false);
     }
 }

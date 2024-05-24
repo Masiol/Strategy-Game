@@ -119,7 +119,321 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Bayonet Stab(Clone)
+      parentName: 
+      position: {x: -0.10209628, y: -0.17969315, z: -0.14286348}
+      rotation: {x: 0.084566474, y: 0.13625413, z: -0.04312918, w: 0.9861152}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Bartender
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Jester
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_PeasantWoman_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Princess
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0.0000017547607, y: -0.0056631467, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_King
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Heavy_02
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Gladiator_Open
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Gladiator_Closed
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Bard
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Heavy_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_ShieldMaiden
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Hood
+      parentName: Bayonet Stab(Clone)
+      position: {x: 0.0000021362305, y: 0, z: 0.05413742}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Dark
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_TinMan
+      parentName: Bayonet Stab(Clone)
+      position: {x: -5.684342e-16, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_Templar
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Doctor
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_03
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Executioner
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Wizard
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Knight_02
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_PeasantMan_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_GoblinFemale
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_GoblinWarrior
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Goblin_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_GoblinWitchDoctor
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Characters_GoblinHunter
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_GoblinKing
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Elf_Female
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Elf_Assassin
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Elf_King
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Elf_Knight
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Elf
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_Rogue
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_Footman_02
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_Footman_01
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_Skeleton
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_Heavy
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SF_Character_Undead_King
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hips_jnt
+      parentName: Bayonet Stab(Clone)
+      position: {x: -0.024244972, y: 1.262583, z: -0.0426182}
+      rotation: {x: 0.021905975, y: -0.1427034, z: -0.66979694, w: 0.7283735}
+      scale: {x: 1.0000118, y: 1.0000107, z: 1}
+    - name: UpperLeg_Left_jnt
+      parentName: Hips_jnt
+      position: {x: 0.12891708, y: -0.221588, z: -0.017863873}
+      rotation: {x: -0.011695486, y: -0.00040235822, z: 0.99993145, w: 0.0004615187}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000007}
+    - name: LowerLeg_Left_jnt
+      parentName: UpperLeg_Left_jnt
+      position: {x: -0.37452164, y: 1.0658141e-16, z: 0}
+      rotation: {x: -0.7075903, y: 0.000006423904, z: -0.000006131827, w: 0.70662296}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: Foot_Left_jnt
+      parentName: LowerLeg_Left_jnt
+      position: {x: -0.38874373, y: 5.162537e-17, z: 7.3425e-12}
+      rotation: {x: 0.5067455, y: 0.49426794, z: -0.5051973, w: 0.49364358}
+      scale: {x: 1.0000012, y: 1.000003, z: 1.000003}
+    - name: Toe_Left_jnt
+      parentName: Foot_Left_jnt
+      position: {x: -6.724043e-12, y: -0.1497335, z: 0.21969701}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000005, y: 1.0000049, z: 1.000003}
+    - name: UpperLeg_Right_jnt
+      parentName: Hips_jnt
+      position: {x: 0.12891664, y: 0.22158809, z: 0.01786388}
+      rotation: {x: -0.99990773, y: -0.0005810857, z: 0.011708362, w: -0.0068581314}
+      scale: {x: 0.9999904, y: 0.9999947, z: 0.9999884}
+    - name: LowerLeg_Right_jnt
+      parentName: UpperLeg_Right_jnt
+      position: {x: 0.374522, y: 3.907985e-16, z: -1.0987456e-12}
+      rotation: {x: -0.70410997, y: -0.000031026048, z: 0.000051800154, w: 0.71009094}
+      scale: {x: 1.0000011, y: 0.9999999, z: 1}
+    - name: Foot_Right_jnt
+      parentName: LowerLeg_Right_jnt
+      position: {x: 0.388744, y: 8.197104e-12, z: -3.6907612e-11}
+      rotation: {x: -0.49583426, y: -0.50672746, z: 0.4927325, w: -0.50456953}
+      scale: {x: 0.99999994, y: 0.9999996, z: 1.0000054}
+    - name: Toe_Right_jnt
+      parentName: Foot_Right_jnt
+      position: {x: -0.000003490797, y: 0.1497333, z: -0.21969701}
+      rotation: {x: 0.000000029802322, y: -0, z: 0.000000029802322, w: 1}
+      scale: {x: 1.0000027, y: 1.0000057, z: 1.0000069}
+    - name: Spine_jnt
+      parentName: Hips_jnt
+      position: {x: -0.019048661, y: -5.158743e-16, z: 6.2692085e-18}
+      rotation: {x: -0.0000000026341782, y: 0.0000000079025355, z: 0.00000014901161,
+        w: 1}
+      scale: {x: 0.999999, y: 1.000001, z: 1}
+    - name: Spine_jnt1
+      parentName: Spine_jnt
+      position: {x: -0.3360725, y: 3.7261742e-16, z: 2.3643465e-18}
+      rotation: {x: 0.000000015805067, y: 0.000000005268355, z: -0.00000014901161,
+        w: 1}
+      scale: {x: 1.0000049, y: 1.0000042, z: 1.000001}
+    - name: Chest_jnt
+      parentName: Spine_jnt1
+      position: {x: -0.33425274, y: -1.2999511e-15, z: -2.3643465e-18}
+      rotation: {x: -0.000000028975954, y: -0.00000003951267, z: 0.000000059604638,
+        w: 1}
+      scale: {x: 0.99999446, y: 0.9999973, z: 1}
+    - name: Shoulder_Right_jnt
+      parentName: Chest_jnt
+      position: {x: -0.21910845, y: 0.27274165, z: -0.0076430403}
+      rotation: {x: -0.7071068, y: 0.7071068, z: 0.000000031345387, w: -0.000000020169516}
+      scale: {x: 1.0000186, y: 0.99999624, z: 1.0000223}
+    - name: Arm_Right_jnt
+      parentName: Shoulder_Right_jnt
+      position: {x: -0.29249033, y: 1.7053025e-15, z: -0.0076430403}
+      rotation: {x: -3.5527133e-15, y: 0.000000014901163, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000012}
+    - name: Forearm_Right_jnt
+      parentName: Arm_Right_jnt
+      position: {x: -0.47118998, y: -6.252776e-15, z: 5.1310176e-17}
+      rotation: {x: 0.000000022351744, y: -0.000000014901165, z: 3.3306693e-16, w: 1}
+      scale: {x: 1.0000006, y: 0.9999991, z: 1.0000017}
+    - name: Hand_Right_jnt
+      parentName: Forearm_Right_jnt
+      position: {x: -0.4403, y: -8.81073e-15, z: 4.7946412e-17}
+      rotation: {x: -2.6469776e-23, y: -1, z: -0, w: 1.7763566e-15}
+      scale: {x: 0.99999994, y: 0.9999996, z: 1.0000021}
+    - name: Shoulder_Left_jnt
+      parentName: Chest_jnt
+      position: {x: -0.21910845, y: -0.27274165, z: 0.0076430403}
+      rotation: {x: -0.7071068, y: 0.7071068, z: 0.000000020808676, w: -0.000000030706232}
+      scale: {x: 1.000019, y: 0.9999978, z: 1.0000238}
+    - name: Arm_Left_jnt
+      parentName: Shoulder_Left_jnt
+      position: {x: 0.29249033, y: 2.2737367e-15, z: 0.0076430403}
+      rotation: {x: -1, y: -0, z: -0.00000001257286, w: 0.000000045634803}
+      scale: {x: 1.000001, y: 0.99999994, z: 0.9999998}
+    - name: Forearm_Left_jnt
+      parentName: Arm_Left_jnt
+      position: {x: 0.471188, y: -2.842171e-16, z: 5.1165055e-17}
+      rotation: {x: -0.000000039115545, y: -0.000000009080398, z: -7.7412095e-17,
+        w: 1}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000006}
+    - name: Hand_Left_jnt
+      parentName: Forearm_Left_jnt
+      position: {x: 0.4403, y: 0, z: 4.781051e-17}
+      rotation: {x: 8.348382e-18, y: -1, z: -0.0000000032596286, w: 4.6565946e-10}
+      scale: {x: 1.0000001, y: 0.9999985, z: 1.0000039}
+    - name: Neck_jnt
+      parentName: Chest_jnt
+      position: {x: -0.22895189, y: 4.2216863e-16, z: 5.667284e-19}
+      rotation: {x: 0.000000018439247, y: 0.000000039512667, z: -3.8603723e-23, w: 1}
+      scale: {x: 0.9999978, y: 1.0000019, z: 1}
+    - name: Head_jnt
+      parentName: Neck_jnt
+      position: {x: -0.08167417, y: -5.9802247e-16, z: -5.667284e-19}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 0.9999992, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

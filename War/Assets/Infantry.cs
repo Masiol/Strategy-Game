@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class Infantry : Unit
 {
-    private int randomAttack;
+    public int randomAttack;
 
     protected override void Awake()
     {
         base.Awake();       
-        StartCoroutine(RandomAttack());
     }
 
-    protected override void Attack()
+    public override void Attack()
     {
-        animator.SetInteger("Attack_Int", randomAttack);
-        animator.SetBool("Attack", true);
+        StartCoroutine(RandomAttack());
+        base.SetAnimation("Attack", true);
     }
 
     IEnumerator RandomAttack()
@@ -22,6 +21,7 @@ public class Infantry : Unit
         while (true)
         {
             randomAttack = Random.Range(0, 2);
+            animator.SetInteger("Attack_Int", randomAttack);
             yield return new WaitForSeconds(1.0f);
         }
     }

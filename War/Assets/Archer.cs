@@ -13,20 +13,20 @@ public class Archer : Unit
     [SerializeField] private float xVariationMin = 0.5f;
     [SerializeField] private float xVariationMax = 2.0f;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        animator.SetFloat("AttackSpeed", unit.baseAttackSpeed);
-    }
+  //  protected override void Awake()
+   // {
+      //  base.Awake();
+       // animator.SetFloat("AttackSpeed", unit.baseAttackSpeed);
+   // }
 
-    protected override void Attack()
-    {
-        animator.SetBool("Attack", true);
-    }
+   // protected override void Attack()
+   // {
+    //    animator.SetBool("Attack", true);
+   // }
     public void PerformAttack()
     {
-        if(enemy != null)
-        ShootArrow(enemy.transform, base.enemyTag, base.unit.TotalDamage);
+       // if(enemy != null)
+       // ShootArrow(enemy.transform, base.enemyTag, base.unit.TotalDamage);
     }
 
     private void ShootArrow(Transform _target, string _tag, int _damage)

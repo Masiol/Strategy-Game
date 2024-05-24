@@ -34,7 +34,7 @@ public class UnitUIManager : MonoBehaviour
         {
             var go = Instantiate(unitElement);
             go.SetParent(parent);
-            go.GetComponent<Unit>().unit = units[i];
+            //go.GetComponent<Unit>().unit = units[i];
             unitsAvatar.Add(go.gameObject);
 
         }
