@@ -21,7 +21,7 @@ public class Infantry : Unit
         while (true)
         {
             randomAttack = Random.Range(0, 2);
-            animator.SetInteger("Attack_Int", randomAttack);
+           // animator.SetInteger("Attack_Int", randomAttack);
             yield return new WaitForSeconds(1.0f);
         }
     }

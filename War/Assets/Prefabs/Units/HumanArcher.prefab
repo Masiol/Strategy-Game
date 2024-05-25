@@ -1223,11 +1223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1e56b3bedc5d9409acb3cd6f18c689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 11400000, guid: fcbe3f67f2417204a9ff8b195c6d3004, type: 2}
-  searchRadius: 120
+  currentState: {fileID: 11400000, guid: 345d70d1482f0604cab1a9515030c942, type: 2}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
+  unitBase: {fileID: 11400000, guid: fcbe3f67f2417204a9ff8b195c6d3004, type: 2}
   enemyTag: 
-  enemy: {fileID: 0}
-  currentState: 0
+  enemyObject: {fileID: 0}
   arrowPrefab: {fileID: 132892, guid: baed7906d997fb54ba9e2c78c155e0db, type: 3}
   arrowSpawnPoint: {fileID: 5411576337447638439}
   launchAngle: 25

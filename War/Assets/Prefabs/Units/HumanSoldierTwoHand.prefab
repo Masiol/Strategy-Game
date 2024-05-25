@@ -79,14 +79,14 @@ NavMeshAgent:
   m_Acceleration: 400
   avoidancePriority: 50
   m_AngularSpeed: 400
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 3.2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!1 &5546108478026152964
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,11 +696,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b3b4d90dffc0a4bae28365f8d7e0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 11400000, guid: 7603a097ddf173042b3c814ce85168ac, type: 2}
-  searchRadius: 150
+  currentState: {fileID: 11400000, guid: 345d70d1482f0604cab1a9515030c942, type: 2}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
+  unitBase: {fileID: 11400000, guid: 7603a097ddf173042b3c814ce85168ac, type: 2}
   enemyTag: 
-  enemy: {fileID: 0}
-  currentState: 0
+  enemyObject: {fileID: 0}
+  randomAttack: 0
 --- !u!114 &1283993025418805019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,8 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6048ea4876aacdf4b96ad40e4049208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sword: {fileID: 7663263685614464689}
   hitPoint: {fileID: 4579186598283612837}
-  hitRadius: 0.82
 --- !u!4 &4308043258822048642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe73043a62658614689ad98579286346,
@@ -784,8 +786,39 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4579186598283612837}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 122038, guid: 808cfb6c7198c4f42b239255d62f1d0c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5753735409332274569}
   m_SourcePrefab: {fileID: 100100000, guid: 808cfb6c7198c4f42b239255d62f1d0c, type: 3}
+--- !u!1 &7663263685614464689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 122038, guid: 808cfb6c7198c4f42b239255d62f1d0c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7663263685614416391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5753735409332274569
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663263685614464689}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.84, y: 4.16, z: 0.45}
+  m_Center: {x: -0.00000007629465, y: 2.38, z: -0.0000005435237}
 --- !u!4 &7663263685614532693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 445010, guid: 808cfb6c7198c4f42b239255d62f1d0c,

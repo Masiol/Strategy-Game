@@ -18,11 +18,11 @@ public class DiedState : State
 
     public override void Execute(Unit unit)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public override void Exit(Unit unit)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

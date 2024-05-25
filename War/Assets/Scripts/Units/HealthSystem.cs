@@ -3,9 +3,7 @@ using TMPro;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
-{
-
-   
+{ 
     public bool isDead = false;
     public event Action<float> OnHealthChanged;
     public event Action OnDeath; 
@@ -47,7 +45,7 @@ public class HealthSystem : MonoBehaviour
     {
         isDead = true;
         OnDeath?.Invoke();
-        GetComponent<Unit>().TransitionToState(new DiedState());
+        GetComponent<Unit>().TransitionToState(GetComponent<Unit>().diedState);
         //gameObject.SetActive(false);
     }
 }

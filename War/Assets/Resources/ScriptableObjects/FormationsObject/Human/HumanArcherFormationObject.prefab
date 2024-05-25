@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squadConfig: {fileID: 11400000, guid: 3d266b76f7fc1c846b1fd1f3839c3755, type: 2}
+  isGrounded: 0
 --- !u!114 &3483833113082913681
 MonoBehaviour:
   m_ObjectHideFlags: 0

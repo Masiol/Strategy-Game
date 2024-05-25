@@ -4,31 +4,46 @@ using System.Collections;
 
 public class Unit : MonoBehaviour
 {
-    public State currentState;
+    private State currentState;
     public NavMeshAgent agent;
     public Animator animator;
     public UnitBase unitBase;
     public string enemyTag;
     public GameObject enemyObject;
 
+    public IdleState idleState { get; set; }
+    public MoveToEnemyState moveToEnemyState { get; set; }
+    public DiedState diedState { get; set; }
+    public AttackState attackState { get; set; }
+
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         agent = GetComponentInParent<NavMeshAgent>();
-        enemyTag = gameObject.tag == "PlayerUnit" ? "EnemyUnit" : "PlayerUnit";
     }
 
     private void OnEnable()
     {
-        MoveToEnemyState moveToEnemyState = new MoveToEnemyState();
+        moveToEnemyState = ScriptableObject.CreateInstance<MoveToEnemyState>();
+        idleState = ScriptableObject.CreateInstance<IdleState>();
+        diedState = ScriptableObject.CreateInstance<DiedState>();
+        attackState = ScriptableObject.CreateInstance<AttackState>();
+
         GameEvents.StartGame += () => TransitionToState(moveToEnemyState);
+        GameEvents.StartGame += FindEnemy;
     }
 
     private void Start()
     {
-        TransitionToState(currentState);
+        TransitionToState(idleState);
+        enemyTag = gameObject.tag == "PlayerUnit" ? "EnemyUnit" : "PlayerUnit";
+
+    }
+    private void FindEnemy()
+    {
         enemyObject = FindClosestEnemy();
         StartCoroutine(FindClosestEnemyCoroutine());
+
     }
 
     private void Update()
@@ -58,7 +73,13 @@ public class Unit : MonoBehaviour
         while (true)
         {
             FindClosestEnemy();
-            yield return new WaitForSeconds(1.0f); // Czekaj 1 sekundê przed ponownym sprawdzeniem
+            if (enemyObject == null)
+            {
+                TransitionToState(idleState);
+
+                agent.enabled = false;
+            }
+            yield return new WaitForSeconds(1.0f); 
         }
     }
 
@@ -92,6 +113,6 @@ public class Unit : MonoBehaviour
     {
         Vector3 direction = (targetPosition - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, lookRotation, Time.deltaTime * 15f);
     }
 }

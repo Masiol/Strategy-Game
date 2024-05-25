@@ -498,7 +498,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8667737508238046772}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 138402, guid: 487f5523220b2264db860ca60ada7799,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2976514989009400461}
   m_SourcePrefab: {fileID: 100100000, guid: 487f5523220b2264db860ca60ada7799, type: 3}
 --- !u!4 &4749684443960286509 stripped
 Transform:
@@ -506,6 +510,33 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4749684443960377345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4749684443960515747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 138402, guid: 487f5523220b2264db860ca60ada7799,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749684443960377345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2976514989009400461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749684443960515747}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.59, y: 2.52, z: 0.49}
+  m_Center: {x: 0.0000018022008, y: 1.26, z: -0.00000017377387}
 --- !u!1001 &8807224545319159621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1052,11 +1083,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b3b4d90dffc0a4bae28365f8d7e0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 11400000, guid: fdafd0914f807fb48aecc579458998eb, type: 2}
-  searchRadius: 150
+  currentState: {fileID: 11400000, guid: 345d70d1482f0604cab1a9515030c942, type: 2}
+  agent: {fileID: 0}
+  animator: {fileID: 0}
+  unitBase: {fileID: 11400000, guid: fdafd0914f807fb48aecc579458998eb, type: 2}
   enemyTag: 
-  enemy: {fileID: 0}
-  currentState: 0
+  enemyObject: {fileID: 0}
+  randomAttack: 0
 --- !u!114 &8039847434195560620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,8 +1116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6048ea4876aacdf4b96ad40e4049208f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sword: {fileID: 4749684443960515747}
   hitPoint: {fileID: 8667737508238046772}
-  hitRadius: 1
 --- !u!4 &9057642042777460910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7529c6f35bee754eac853e333b721be,

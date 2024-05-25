@@ -42,11 +42,11 @@ public class UnitUIManager : MonoBehaviour
 
     public void ShowUIUnitPanel()
     {
-        panel.DOAnchorPosY(showPositionY, animationDuration).SetEase(easingType);
+        //panel.DOAnchorPosY(showPositionY, animationDuration).SetEase(easingType);
     }
     public void HideUIUnitPanel()
     {
-        panel.DOAnchorPosY(hidePositionY, animationDuration + 0.5f).SetEase(easingType);
+       // panel.DOAnchorPosY(hidePositionY, animationDuration + 0.5f).SetEase(easingType);
 
     }
 }

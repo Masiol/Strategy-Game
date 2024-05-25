@@ -7,6 +7,7 @@ public class SquadManager : MonoBehaviour
     private ColliderChecker colliderChecker;
 
     public bool isGrounded;
+    public bool shouldBeEnemy;
 
     private void Awake()
     {
@@ -25,6 +26,23 @@ public class SquadManager : MonoBehaviour
         }
         colliderChecker = GetComponent<ColliderChecker>();
         CreateSquad();
+        
+    }
+    private void Start()
+    {
+        SetUnitsTag();
+    }
+
+    private void SetUnitsTag()
+    {
+        if(shouldBeEnemy)
+        {
+            Unit[] units = GetComponentsInChildren<Unit>();
+            foreach (Unit unit in units)
+            {
+                unit.gameObject.tag = "EnemyUnit";
+            }
+        }
     }
 
     public void SetFormationStrategy(IFormationStrategy _strategy)

@@ -20,7 +20,7 @@ MonoBehaviour:
   baseSpeed: 4
   baseAttackSpeed: 10
   baseArmor: 10
-  attackRange: 3
+  attackRange: 2.4
   unitFormation: {fileID: 591503862558163067, guid: 190b6c3d4629fcb40a763b567fe2d0c3,
     type: 3}
   race: {fileID: 11400000, guid: e4fca6ab491924641b3f06eb958ccfd5, type: 2}
